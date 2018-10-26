@@ -1,0 +1,60 @@
+.body {
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+    margin: 0;
+    padding: 0;
+}
+
+.round-border {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+/* ****************** */
+.task {
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 260px;
+    margin: 10px;
+    padding: 5px 10px 10px 10px;
+    background-color: beige;
+/*    background-color: #f5f5f6;*/
+    /*                    color: #737881;; */
+    -moz-box-shadow: 1.5px 1.5px darkgray;
+    -webkit-box-shadow: 1.5px 1.5px darkgray;
+    box-shadow: 1.5px 1.5px darkgray;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    cursor: pointer;
+}
+.task-inner {
+    width: 240px;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+}
+.task-label, .task-content {
+    width: 100%;
+    padding: 0 2%;
+}
+.task-label p {
+    padding: 15px 0 10px 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+.task-content {
+    margin-top: 5px;
+}
+.add-task-box {
+    text-align: center;
+    width: 50px;
+    margin: 0 115px;
+}

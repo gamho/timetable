@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.bit.tatab.login.dao.LoginDAO">
+  
+  <!-- 회원 로그인 정보 db 탐색 -->
+  	<select id="loginInfoFind" parameterType="LoginVO" resultType="LoginVO">
+	  	select login_email, login_name
+	  	from MEMBER_T
+	  	where login_email = #{login_email}
+  	</select>
+  	
+	<!-- 회원 로그인 정보 db insert -->
+    <insert id="loginInfoInsert" parameterType="LoginVO">
+		insert into MEMBER_T(login_email, login_name)
+		values(#{login_email}, #{login_name})
+    </insert>
+    <!-- 
+    <resultMap id="lalala" type="HashMap"> 
+	    <result property="NO" column="NO" /> 
+	    <result property="LOGIN_EMAIL" column="LOGIN_EMAIL" />
+	    <result property="MAIN_TITLE" column="MAIN_TITLE" /> 
+	    <result property="SUB_TITLE" column="SUB_TITLE" /> 
+	    <result property="SUB_COMMENT" column="SUB_COMMENT" /> 
+    </resultMap> 
+
+ -->    
+    <!-- 코멘트 관련 로그인 정보 db 탐색 -->
+	<select id="mainCommentFind" parameterType="LoginVO" resultType="CommentVO">
+		select no, login_email, main_title, sub_title, sub_comment
+		from MAIN_COMMENT_T
+		where login_email = #{login_email}
+	</select>
+	
+	  <!-- 코멘트 관련 로그인 정보 db insert  -->
+    <insert id="mainCommentInsert" parameterType="CommentVO">
+    	insert into MAIN_COMMENT_T(no, login_email, main_title, sub_title, sub_comment)
+   		values(seq_main_comment_t_no.nextVal, #{login_email}, #{main_title}, #{sub_title}, #{sub_comment})
+    </insert>
+    
+    <!-- 마이페이지 관련 로그인 정보 db 탐색 -->
+    <select id="myPageInfoFind" parameterType="LoginVO" resultType="MyPageVO">
+    	select *
+    	from MY_PAGE_T
+    	where login_email = #{login_email}
+    </select>
+    
+    <!-- 마이페이지 관련 로그인 정보 db insert -->
+    <insert id="myPageInfoInsert" parameterType="MyPageVO">
+    	insert into MY_PAGE_T(login_email, login_name, nickname, dob, motto, department, gender, address, phone_number)
+    values (#{login_email}, #{login_name}, #{nickname}, #{dob}, #{motto}, #{department}, #{gender}, #{address}, #{phone_number})
+    </insert>
+    
+    
+    
+    
+ </mapper>

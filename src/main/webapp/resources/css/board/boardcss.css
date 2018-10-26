@@ -1,0 +1,29 @@
+.body {
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+    margin: 0;
+    padding: 0;
+}
+div {
+	
+}
+/*
+.board-background {
+    background-image: url('../../img/board/backgroundImg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 10px;
+    height: 100vh;
+}
+*/
+.kanban-container {
+/*    추후 여백 조절*/  
+}
+.kanban-board {
+	padding: 20px 0;
+}
+.add {
+    font-size: 3rem;
+    margin: 10px;
+    color: dimgray;
+}

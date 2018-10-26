@@ -1,0 +1,58 @@
+.body {
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+    margin: 0;
+    padding: 0;
+}
+.kanban-col {
+    width: 280px;
+    height: 95vh;
+    margin-right: 15px;
+    margin-left: 15px;
+    border: 0.5px dotted green;
+    float: left;
+}
+.kanban-head {
+    width: 280px;
+    height: 50px;
+    background-color: darkgreen;
+    border-radius: 10px 0;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.kanban-head p {
+    font-family: 'Nanum Gothic', sans-serif;
+    color: ghostwhite;
+    font-weight: bold;
+    font-size: 2.2rem;
+    padding: 10px 20px 1px 20px;
+}
+.body-up-img, .body-down-img {
+    float: right;
+    width: 2rem;
+    margin-top: 5px;
+    color: ghostwhite;
+    font-size: 2rem;
+}
+.kanban-head .body-up-img {
+    display: block;
+}
+.kanban-head .body-down-img {
+    display: none;
+}
+.kanban-body {
+    
+    width: 280px;
+    overflow-y: auto;
+}
+/* ***** 필요한가?? ***** */
+.grab {
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.grabbing {
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+/* ****************** */

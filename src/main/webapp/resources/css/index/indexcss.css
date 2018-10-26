@@ -1,0 +1,227 @@
+body {
+    background-image: url(../../img/index/project-darker.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@media screen and ( min-width: 1025px ) {
+.login-box {
+    width: 450px;
+    height: 15em;
+    margin:  10em 25% 3em 25%;
+    text-align: center;
+    display: inline-block;
+}
+.service-title {
+    width: 250px;
+    background-color: #98B000;
+    color: ghostwhite;
+    margin: 0 41.8%;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.scroll-about-btn {
+    font-size: 6rem;
+    margin: 14vh 48.4% 8vh 48.4%;
+    color: #EEEEEE;
+    position: absolute;
+    bottom: 0px;
+}
+}
+@media screen and ( max-width: 1024px ) {
+
+.login-box {
+    width: 450px;
+    height: 15em;
+    margin:  5em 25% 3em 25%;
+    text-align: center;
+    display: inline-block;
+}
+
+.service-title {
+    width: 250px;
+    background-color: #98B000;
+    color: ghostwhite;
+    margin: 0 41.8%;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.scroll-about-btn {
+    font-size: 6rem;
+    margin: 14vh 47.3% 8vh 47.3%;
+    color: #EEEEEE;
+    position: absolute;
+    bottom: 0px;
+}
+
+}
+#customBtn {
+      display: inline-block;
+      background: white;
+      color: #444;
+      width: 190px;
+      border-radius: 5px;
+      border: thin solid #888;
+      box-shadow: 1px 1px 1px grey;
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 42px;
+      padding-right: 42px;
+      font-size: 14px;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+.login-div {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+/*
+.login-box {
+    width: 450px;
+    height: 15em;
+    margin:  15% 25% 3em 25%;
+    text-align: center;
+    display: inline-block;
+}
+*/
+.title {
+    font-size: 10em;
+    font-weight: bold;
+    color: #EEEEEE;
+    font-family: 'Fredoka One', cursive;
+/*    font-family: 'Audiowide', cursive;*/
+/*    font-family: 'Lalezar', cursive;*/
+}
+.login-btn > div {
+    margin: 10px 0;
+}
+.login-btn > img {
+    width : 15em;
+    height: 3.5em;
+}
+.scroll-about-btn a, .scroll-about-btn i {
+    color: dimgray;
+}
+.scroll-about-btn i:hover {
+    color: #98B000;
+}
+.service-div {
+    width: 100%;
+    text-align: center;
+}
+.back-service-div {
+    width: 80%;
+    margin: 0 10%;
+    padding-top: 100px;
+    background-color: ghostwhite;
+}
+.service-line {
+    width: 250px;
+    margin: 5px 41.8% 5px 41.8%;
+    height: 2px;
+    background-color: dimgray;
+}
+.service-item-box {
+    padding: 40px 10%;
+}
+.service-item {
+    height: 25em;
+}
+.item {
+    margin: 2em 3vh;
+}
+.icon {
+    font-size: 8rem;
+    margin: 5% 0;
+}
+.comment1 {
+    font-weight: bold;
+    margin: 5px;
+    font-size: 2rem;
+}
+.comment2 {
+    margin: 25px 0;
+}
+.about-div {
+    width: 100%;
+    height: 30em;
+    background-color: #98B000;
+    text-align: center;
+}
+
+.about-img {
+    width: 100%;
+    height: 30em;
+}
+.about-content {
+    width: 100%;
+    height: 30em;
+    padding: 40px 0;
+}
+.about-title {
+    text-align: center;
+    padding: 50px 0 40px 0;
+    font-size: 4rem;
+    font-weight: bold;
+    color: ghostwhite;
+}
+.about-main {
+    padding: 30px 0;
+    width: 70%;
+    margin: 0 15% 30px 15%;
+    text-align: center;
+    vertical-align: center;
+    color: ghostwhite;
+}
+.about-line {
+    width: 60%;
+    margin: 5px 20%;
+    height: 1px;
+    background-color: ghostwhite;
+}
+.about-main-txt{
+    display: inline-block;
+    text-align: left;
+    width: 80%;
+}
+.about-main-txt p {
+    text-align: left;
+    width: 70%;
+    margin-left: 15%;
+}
+.footer {
+    width: 100%;
+    height: 200px;
+    text-align-last: center;
+    background-color: #EEEEEE;
+}
+.copyright {
+    padding-top: 95px;
+    color: dimgray;
+}

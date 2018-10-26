@@ -1,0 +1,51 @@
+.wrapper {
+    width: 300px;
+    height: 100%;
+    background-color: dimgrey;
+}
+
+.activity {
+    width: inherit;
+    height: 7%;
+    display: table;
+    
+}
+
+.name {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20px;
+    color: aliceblue;
+    padding-left: 20px;
+}
+
+.activityContent {
+    margin-bottom: 20px;
+}
+
+.activityIcon {
+    font-size: 45px;
+    color: cadetblue;
+    padding-left: 20px;
+    float: left;
+
+}
+
+.activityTime {
+    padding-left: 70px;
+    font-size: 14px;
+    color: darkgray
+}
+
+.activityDo {
+    padding-left: 70px;
+    font-size: 17px;
+    color : aliceblue
+}
+
+.activityTaskName {
+    clear: both;
+    padding-left: 70px;
+    padding-top: 5px;
+    font-size: 17px;
+}
