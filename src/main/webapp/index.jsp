@@ -41,20 +41,22 @@
 				<div class="topMenu">
 					<table border="1" style="width: 100%;">
 						<tr>
-							<td><navi> <a href="/Mission-Web/jsp/member/list.jsp">학과지정</a>
-								<select name="department" style="width: 17%">
+							<td>
+							<form id="selection" action="selection.do" method="post" commandName="SubjectVO">
+							학과지정	<select id="department" style="width: 17%">
 									<option value="default">&nbsp;&nbsp;학 과</option>
-									<option value="sw">사회복지학과</option>
-									<option value="cs">컴퓨터공학과</option>
-								</select>&nbsp;&nbsp;|| <a href="/Mission-Web/jsp/board/list.jsp">이수</a>
-								<select name="department" style="width: 17%">
+									<option value="socialWelfare">사회복지학과</option>
+									<option value="computerScience">컴퓨터공학과</option>
+								</select>&nbsp;&nbsp;|| 이수
+								<select id="option" style="width: 17%">
 									<option value="default">&nbsp;&nbsp;이 수 구 분</option>
-									<option value="sw">전선</option>
-									<option value="cs">전필</option>
-								</select>&nbsp;&nbsp;|| <a href="/Mission-Web/jsp/board/list.jsp">과목명</a>&nbsp;
+									<option value="optional">전선</option>
+									<option value="mandatory">전필</option>
+								</select>&nbsp;&nbsp;|| 과목명&nbsp;
 								<input type="text" style="width: 100px">&nbsp;
-								<button onclick="search()">조회</button>
-								</navi></td>
+								<input type="button" id="checkOptions" value="조회" onclick="process()">
+							</form>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -88,35 +90,10 @@
 							<th>아름관412호</th>
 							<th>사회복지학과1</th>
 						</tr>
-						<tr>
-							<th>2</th>
-							<th>05466001</th>
-							<th>사회복지개론</th>
-							<th>전선</th>
-							<th>3</th>
-							<th>60</th>
-							<th>화3/4교시, 목3/4교시</th>
-							<th>남현주</th>
-							<th>아름관412호</th>
-							<th>사회복지학과1</th>
-						</tr>
-						<tr>
-							<th>3</th>
-							<th>05466001</th>
-							<th>사회복지개론</th>
-							<th>전선</th>
-							<th>3</th>
-							<th>60</th>
-							<th>수7/8교시, 금7/8교시</th>
-							<th>남현주</th>
-							<th>아름관412호</th>
-							<th>사회복지학과1</th>
-						</tr>
 					</table>
 
 					<br> <br>
 					<button type="button" class="btn btn-info">시간표 제작</button>
-					<!-- <a href = "/Mission-Web/board/writeForm.jsp">새글 등록</a> -->
 				</div>
 				<!-- 조회 시간표 출력 테이블 div 끝 -->
 			</div>

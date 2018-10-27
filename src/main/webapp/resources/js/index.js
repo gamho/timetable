@@ -20,4 +20,16 @@ $(document).ready(function(){
         $('.btn-dark').css('backgound-color', '#343a40');
         $('.btn-light').css('backgound-color', 'grey');
     });
+     
+     /*$("#checkOptions").on("click", function(){
+    	console.log('롸롸롸');
+    	process1(); 
+    	process2();
+     });*/
+     function process(){
+    	 var department = $("#department option:selected").text();
+    	 var option = $("#option option:selected").text();
+    	 console.log(checkOptions);
+     }
+       
 });
