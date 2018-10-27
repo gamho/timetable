@@ -26,8 +26,8 @@
    </beans:bean>
 
 
-   <context:component-scan base-package="com.bit.tatab" />
-   <context:component-scan base-package="com.bit.tatab.main.dao" />
+   <context:component-scan base-package="com.cafe24.timetable" />
+   <context:component-scan base-package="com.cafe24.timetable.main.dao" />
   
 
 </beans:beans>

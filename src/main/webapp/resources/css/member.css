@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+table, th, td {
+	
+	border : 1px solid #D4E0EE;
+	border-collpase : collapse;
+	font-family : verdana, sans-serif;
+	color : #555;
+	
+}
+
+th, td {
+	
+	padding : 5px;
+	
+}
+
+table th {
+	
+	background-color: #E6EDF5;
+	color : #4F76A3;
+	
+}
+
+table#list tr:nth-child(2n) {
+	
+	background-color: #F7F9FC;
+	
+}
+
+tr:hover {
+	
+	background-color: #FEEFDCF;
+	
+}
+
+td a:visited, td a:link {
+	
+	color : #718ABE;
+	text-decoration: none;
+	
+}
+
+td a:hover {
+	text-decoration : underline;
+}

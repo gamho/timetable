@@ -6,9 +6,8 @@
 
 <configuration>
    <typeAliases>
-      <typeAlias type="com.bit.tatab.main.vo.ProjectVO" alias="ProjectVO" />
-      <typeAlias type="com.bit.tatab.login.vo.LoginVO" alias="LoginVO" />
-      <typeAlias type="com.bit.tatab.main.vo.CommentVO" alias="CommentVO" />
-      <typeAlias type="com.bit.tatab.main.vo.MyPageVO" alias="MyPageVO" />
+      <typeAlias type="com.cafe24.timetable.main.vo.ProjectVO" alias="ProjectVO" />
+      <typeAlias type="com.cafe24.timetable.main.vo.CommentVO" alias="CommentVO" />
+      <typeAlias type="com.cafe24.timetable.main.vo.MyPageVO" alias="MyPageVO" />
    </typeAliases>
 </configuration>
