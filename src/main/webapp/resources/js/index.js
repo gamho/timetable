@@ -26,10 +26,13 @@ $(document).ready(function(){
     	process1(); 
     	process2();
      });*/
-     function process(){
-    	 var department = $("#department option:selected").text();
-    	 var option = $("#option option:selected").text();
-    	 console.log(checkOptions);
-     }
        
 });
+
+function process(){
+	console.log('롸롸롸');
+	var department = $("#department option:selected").text();
+	var option = $("#option option:selected").text();
+	console.log(department);
+	console.log(option);
+}
