@@ -1,22 +1,21 @@
 package com.cafe24.timetable.main.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cafe24.timetable.main.service.MainService;
-import com.cafe24.timetable.main.vo.CommentVO;
-import com.cafe24.timetable.main.vo.ProjectVO;
+import com.cafe24.timetable.main.vo.SubjectVO;
+import com.cafe24.timetable.main.vo.TimeTableVO;
 
 
 @Controller
@@ -25,44 +24,73 @@ public class MainController {
 	@Inject
 	MainService mainService;
 	
-	// GET 방식으로 호출되는 userMain 페이지
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public ModelAndView userMain(HttpServletRequest request, HttpServletResponse response) throws Exception {		
+	// POST 방식으로 호출되는 과목 리스트 - 추후에 조건 적용함에 따라 get으로 바뀔 수도 있으니, 참고할 것.
+	@RequestMapping(value="/selection.do", method=RequestMethod.POST)
+	public ModelAndView selection(HttpServletRequest request, HttpServletResponse response) throws Exception {		
 		
-		System.out.println("!!!!!");
+		System.out.println("selection.do 컨트롤러 시작");
 		
-		// 세션객체 얻어오기 - 이메일
-        HttpSession session = request.getSession();
-        String login_email = session.getAttribute("login_email").toString();
-        
-        // db에 있는 코멘트들 가져오기
- 		String mainTitle = session.getAttribute("main_title").toString();
- 		String subTitle = session.getAttribute("sub_title").toString();
- 		String subComment = session.getAttribute("sub_comment").toString();
- 		CommentVO commentVO = new CommentVO(login_email, mainTitle, subTitle, subComment);
-        
-		ModelAndView mav = new ModelAndView("userMain");
-		
-		// project list 불러오기
-		List<String> projectList = mainService.selectAllProject(login_email);
+        // db에 있는 과목들 가져오기 - SubjectVO
+ 		List<SubjectVO> subjectList = mainService.selectAllSubjects();
 	
-		mav.addObject("projectList", projectList);
-		mav.addObject("commentVO", commentVO);
+ 		// 세션에 받아온 객체 추가 - redirect 대응
+ 		HttpSession session = request.getSession();
+ 		session.setAttribute("subjectList", subjectList);
+ 		
+		ModelAndView mav = new ModelAndView("redirect:/index.jsp");
+		
+		mav.addObject("subjectList", subjectList);
+		
+		System.out.println("넘어온 과목 리스트 : " + subjectList.toString());
 		
 		return mav;
 		
 	}
 	
+	// POST 방식을 호출되는 시간표 제작
+		@RequestMapping(value="/createTable.do", method=RequestMethod.POST)
+		public ModelAndView createTable(HttpServletRequest request, HttpServletResponse response, int[] checkbox) throws Exception{
+			
+			
+			System.out.println("createTable.do 컨트롤러 시작");
+			
+			// 넘어온 체크박스 값 확인
+			for(int i=0; i<checkbox.length; i++) {
+				System.out.println("체크박스 값 : " + checkbox[i]);
+			}
+			
+			// 체크박스 값들 해쉬맵에 삽입
+			HashMap hm = new HashMap();
+			hm.put("checkbox", checkbox);
+			
+			// db에 있는 해당 과목들 가져오기 - SubjectVO
+			List<SubjectVO> subjectList = (List<SubjectVO>)mainService.selectSubjects(hm);
+			System.out.println("가져온 선택과목 리스트 : " + subjectList.toString());
+			
+//			------------------여기까지 되는 부분---------------------
+			
+			// 해쉬맵에 삽입
+			HashMap hm2 = new HashMap();
+			hm2.put("subjectList", subjectList);
+			
+			// 가져온 과목 리스트 db에 저장하기 - TimeTableVO
+			mainService.insertSubjects(hm2);
+			System.out.println("db 저장 완료");
+			
+			ModelAndView mav = new ModelAndView("redirect:/index.jsp");
+			return mav;
+		}
 	
+	/*
 	// POST 방식으로 호출되는 userMain 페이지
-	/*@RequestMapping(value="/userMain.do", method=RequestMethod.POST)
+	@RequestMapping(value="/userMain.do", method=RequestMethod.POST)
 	public ModelAndView userMain(HttpServletRequest request, HttpServletResponse response, @RequestBody LoginVO loginvo) throws Exception{
 	
 		System.out.println("@@@@@");
 		ModelAndView mav = new ModelAndView("userMain");
 		return mav;
 		
-	}*/
+	}
 
 	// 새 프로젝트 db에 추가
 	@RequestMapping(value = "/register.do", method = RequestMethod.POST)
@@ -108,5 +136,5 @@ public class MainController {
 		
 		return mav;
 		
-	}
+	}*/
 }

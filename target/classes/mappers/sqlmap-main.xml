@@ -4,29 +4,36 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cafe24.timetable.main.dao.MainDAO">
 
-	<!-- prj_t에 insert (register) -->
-	<insert parameterType="ProjectVO" id="insert"> insert into
-		PRJ_T(project_no, project_name, project_comment)
-		values(seq_prj_t_p_no.nextval, #{project_name}, #{project_comment})
+	<!-- 과목 리스트 조회 -->
+	<select id="selectAllSubjects" resultType="SubjectVO">
+		SELECT * FROM SUBJECT_T
+			ORDER BY NO
+	</select>
+	
+	<!-- 선택한 과목 리스트 조회 -->
+	<select id="selectSubjects" resultType="hashmap" parameterType="hashmap">
+		SELECT * FROM SUBJECT_T
+			WHERE NO IN  
+			<foreach item="type" collection="checkbox" open="(" close=")" separator=",">
+		        #{type.value}
+		    </foreach>
+			ORDER BY NO
+	</select>
+
+	<!-- 선택한 과목 리스트 삽입 -->
+	<insert id="insertSubjects" parameterType="hashmap">
+		INSERT INTO TIMETABLE_T(NO, SUB_NAME, CLASS_TIME, PROF, CLASSROOM) VALUES
+		<foreach collection="subjectList" item="item" open="INSERT ALL" separator=" " >
+			INTO TIMETABLE_T(NO, SUB_NAME, CLASS_TIME, PROF, CLASSROOM)
+				VALUES(1, #{item.sub_name, jdbcType=VARCHAR}, #{item.class_time, jdbcType=VARCHAR}, #{item.prof, jdbcType=VARCHAR}, #{item.classroom, jdbcType=VARCHAR})
+		</foreach>
+		
+		
 	</insert>
 
-	<!-- project_list_t에 insert -->
-	<insert parameterType="List" id="insert_prj_list_t"> insert into
-		PROJECT_LIST_T(project_name, member_id) values(#{name},
-		#{login_email}) </insert>
-
-	<!-- 프로젝트 List 조회 -->
-	<select id="selectAllProject" resultType="ProjectVO"> select project_name
-		from project_list_t where member_id = #{login_email}
-		order by project_name </select>
-
-	<!-- 코멘트 관련 내용 db에 modify -->
-	<update id="modifyComment" parameterType="CommentVO">
-		update MAIN_COMMENT_T
-		set main_title = #{main_title},
-		sub_title = #{sub_title},
-		sub_comment = #{sub_comment}
-		where login_email = #{login_email}
-	</update>
 
 </mapper>
+   			<!-- <foreach collection="subjectList" item="type" separator=" , ">
+   				(1, "${type.sub_name, jdbcType=VARCHAR}", "${type.class_time, jdbcType=VARCHAR}",
+   				 "${type.prof, jdbcType=VARCHAR}", "${type.classroom, jdbcType=VARCHAR}")
+   			</foreach> -->

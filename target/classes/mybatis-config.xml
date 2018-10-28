@@ -9,5 +9,7 @@
       <typeAlias type="com.cafe24.timetable.main.vo.ProjectVO" alias="ProjectVO" />
       <typeAlias type="com.cafe24.timetable.main.vo.CommentVO" alias="CommentVO" />
       <typeAlias type="com.cafe24.timetable.main.vo.MyPageVO" alias="MyPageVO" />
+      <typeAlias type="com.cafe24.timetable.main.vo.SubjectVO" alias="SubjectVO" />
+      <typeAlias type="com.cafe24.timetable.main.vo.TimeTableVO" alias="TimeTableVO" />
    </typeAliases>
 </configuration>

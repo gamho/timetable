@@ -54,7 +54,7 @@
 									<option value="mandatory">전필</option>
 								</select>&nbsp;&nbsp;|| 과목명&nbsp;
 								<input type="text" style="width: 100px">&nbsp;
-								<input type="button" id="checkOptions" value="조회" onclick="process()">
+								<input type="submit" class="btn btn-info" value="조회">
 							</form>
 							</td>
 						</tr>
@@ -64,8 +64,11 @@
 				<!-- topMenu - 검색창 끝 -->
 				<!-- 조회 시간표 출력 테이블 div -->
 				<div class="searchList">
+				<!-- form태그 들어가는 위치 -->
+				<form method="post" action="createTable.do" commandName="SubjectVO">
 					<table border="1" style="width: 100%;" id="list">
 						<tr>
+							<th width="3%"></th>
 							<th width="5%">번호</th>
 							<th width="10%">학수번호</th>
 							<!-- 알아서 나머지 %로 설정된다! -->
@@ -78,22 +81,25 @@
 							<th width="7%">강의실</th>
 							<th width="13%">비고</th>
 						</tr>
-						<tr>
-							<th>1</th>
-							<th>05466001</th>
-							<th>사회복지개론</th>
-							<th>전선</th>
-							<th>3</th>
-							<th>60</th>
-							<th>월3/4교시, 수3/4교시</th>
-							<th>남현주</th>
-							<th>아름관412호</th>
-							<th>사회복지학과1</th>
+						<c:forEach var="subject" items="${subjectList}" varStatus="num">
+						<tr><!-- td로 변경-->
+							<td><input type="checkbox" name="checkbox" value="${num.count}"></td>
+							<td>${ subject.no }</td>
+							<td>${ subject.sub_no }</td>
+							<td>${ subject.sub_name }</td>
+							<td>${ subject.kind }</td>
+							<td>${ subject.stu_no }</td>
+							<td>${ subject.stu_limit }</td>
+							<td>${ subject.class_time }</td>
+							<td>${ subject.prof }</td>
+							<td>${ subject.classroom }</td>
+							<td>${ subject.remarks }</td>
 						</tr>
+						</c:forEach>
 					</table>
-
 					<br> <br>
-					<button type="button" class="btn btn-info">시간표 제작</button>
+					<button type="submit" class="btn btn-info">시간표 제작</button>
+				</form>
 				</div>
 				<!-- 조회 시간표 출력 테이블 div 끝 -->
 			</div>

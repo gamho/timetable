@@ -1,5 +1,6 @@
 package com.cafe24.timetable.main.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,8 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.cafe24.timetable.main.dao.MainDAO;
-import com.cafe24.timetable.main.vo.CommentVO;
-import com.cafe24.timetable.main.vo.ProjectVO;
+import com.cafe24.timetable.main.vo.SubjectVO;
 
 
 
@@ -16,29 +16,36 @@ import com.cafe24.timetable.main.vo.ProjectVO;
 public class MainServiceImpl implements MainService{
 
 	@Inject
-	private MainDAO mainDao;
+	private MainDAO mainDAO;
 
-	// 프로젝트 생성
 	@Override
-	public void insert(ProjectVO project, String login_email) {
-		mainDao.insert(project, login_email);
+	public List<SubjectVO> selectAllSubjects() {
+		List<SubjectVO> subjectList = mainDAO.selectAllSubjects();
+		return subjectList;
 	}
 
-	// 해당 id가 속한 프로젝트 리스트 불러오기
+	@Override
+	public List<SubjectVO> selectSubjects(HashMap hm) {
+		List<SubjectVO> subjectList = mainDAO.selectSubjects(hm);
+		return subjectList;
+	}
+
+	@Override
+	public void insertSubjects(HashMap hm2) {
+		mainDAO.insertSubjects(hm2);
+		
+	}
+
+	
+	
+	/*// 해당 id가 속한 프로젝트 리스트 불러오기
 	@Override
 	public List<String> selectAllProject(String login_email) {
 		List<String> projectList = mainDao.selectAllProject(login_email);
 		return projectList;
-	}
+	}*/
 
-	@Override
-	public void modifyComment(CommentVO commentVO) {
-		// TODO Auto-generated method stub
-		mainDao.modifyComment(commentVO);
-	}
- 
 	
-
  
 	
 	

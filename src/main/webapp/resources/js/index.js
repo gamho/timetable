@@ -29,10 +29,10 @@ $(document).ready(function(){
        
 });
 
-function process(){
+/*function process(){
 	console.log('롸롸롸');
 	var department = $("#department option:selected").text();
 	var option = $("#option option:selected").text();
 	console.log(department);
 	console.log(option);
-}
+}*/

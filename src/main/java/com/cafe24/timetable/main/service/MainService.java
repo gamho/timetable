@@ -1,19 +1,23 @@
 package com.cafe24.timetable.main.service;
 
+import java.util.HashMap;
 import java.util.List;
 
-import com.cafe24.timetable.main.vo.CommentVO;
-import com.cafe24.timetable.main.vo.ProjectVO;
+import com.cafe24.timetable.main.vo.SubjectVO;
+import com.cafe24.timetable.main.vo.TimeTableVO;
 
 public interface MainService {
-	
-	// 새 코멘트 info db에 추가
-	public void modifyComment(CommentVO commentVO);
-	
-	// 프로젝트 생성
-	public void insert(ProjectVO project, String login_email);
-		
-	// 해당 id가 속한 프로젝트 리스트 불러오기
-	public List<String> selectAllProject(String login_email);
+
+	// 과목 리스트 가져오기
+	public List<SubjectVO> selectAllSubjects();
+
+	// 선택한 과목 리스트 가져오기
+	public List<SubjectVO> selectSubjects(HashMap hm);
+
+	// 선택한 과목 리스트 삽입하기
+	public void insertSubjects(HashMap hm2);
+
+
+
 	
 }
