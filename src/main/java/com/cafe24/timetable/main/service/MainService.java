@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.cafe24.timetable.main.vo.SubjectVO;
-import com.cafe24.timetable.main.vo.TimeTableVO;
 
 public interface MainService {
 

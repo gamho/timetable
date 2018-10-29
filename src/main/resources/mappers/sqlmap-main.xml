@@ -5,47 +5,50 @@
 <mapper namespace="com.cafe24.timetable.main.dao.MainDAO">
 
 	<!-- 과목 리스트 조회 -->
-	<select id="selectAllSubjects" resultType="SubjectVO" parameterType="SubjectVO">
+	<select id="selectAllSubjects" resultType="SubjectVO"
+		parameterType="SubjectVO">
 		SELECT * FROM SUBJECT_T
-			WHERE DEPARTMENT = '${ department }'
-			ORDER BY NO
+		WHERE DEPARTMENT = '${ department }'
+		ORDER BY NO
 	</select>
-	
+
 	<!-- 선택한 과목 리스트 조회 -->
-	<select id="selectSubjects" resultType="SubjectVO" parameterType="hashmap">
+	<select id="selectSubjects" resultType="SubjectVO"
+		parameterType="hashmap">
 		SELECT * FROM SUBJECT_T
-			WHERE NO IN  
-			<foreach item="type" collection="checkbox" open="(" close=")" separator=",">
-		        #{type.value}
-		    </foreach>
-			ORDER BY NO
+		WHERE NO IN
+		<foreach item="type" collection="checkbox" open="(" close=")"
+			separator=",">
+			#{type.value}
+		</foreach>
+		ORDER BY NO
 	</select>
-	
+
 	<!-- 등록된 마지막 숫자 조회 -->
 	<select id="selectLastNo" resultType="int">
-		select no 
+		select no
 		from (select * from timetable_t order by no desc)
-        where rownum = 1
+		where rownum = 1
 	</select>
 
 
 	<!-- 선택한 과목 리스트 삽입 -->
 	<insert id="insertSubjects" parameterType="java.util.List">
-		<foreach collection="list" item="item" open="INSERT ALL" separator=" " close = "select * from dual">
-			INTO TIMETABLE_T(NO, SUB_NAME, CLASS_TIME, PROF, CLASSROOM)
-				VALUES(#{item.last_num}, #{item.sub_name, jdbcType=VARCHAR}, #{item.class_time, jdbcType=VARCHAR}, #{item.prof, jdbcType=VARCHAR}, #{item.classroom, jdbcType=VARCHAR})
-		</foreach> 	
+		<foreach collection="list" item="item" open="INSERT ALL"
+			separator=" " close="select * from dual">
+			INTO TIMETABLE_T(NO, SUB_NAME, CLASS_TIME, PROF,
+			CLASSROOM)
+			VALUES(#{item.last_num}, #{item.sub_name, jdbcType=VARCHAR}, #{item.class_time,
+			jdbcType=VARCHAR}, #{item.prof, jdbcType=VARCHAR}, #{item.classroom,
+			jdbcType=VARCHAR})
+		</foreach>
 	</insert>
 
 	<!-- 전체 타임테이블 조회 -->
 	<select id="selectAllTimeTables" resultType="SubjectVO">
-		SELECT * FROM TIMETABLE_T ORDER BY NO
+		SELECT * FROM
+		TIMETABLE_T ORDER BY NO
 	</select>
 
-
-
 </mapper>
-   			<!-- <foreach collection="subjectList" item="type" separator=" , ">
-   				(1, "${type.sub_name, jdbcType=VARCHAR}", "${type.class_time, jdbcType=VARCHAR}",
-   				 "${type.prof, jdbcType=VARCHAR}", "${type.classroom, jdbcType=VARCHAR}")
-   			</foreach> -->
+   			
