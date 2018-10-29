@@ -104,6 +104,49 @@ public class SubjectVO {
 				+ ", kind=" + kind + ", stu_no=" + stu_no + ", stu_limit=" + stu_limit + ", class_time=" + class_time
 				+ ", prof=" + prof + ", classroom=" + classroom + ", remarks=" + remarks + "]";
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((class_time == null) ? 0 : class_time.hashCode());
+		result = prime * result + ((classroom == null) ? 0 : classroom.hashCode());
+		result = prime * result + ((prof == null) ? 0 : prof.hashCode());
+		result = prime * result + ((sub_name == null) ? 0 : sub_name.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SubjectVO other = (SubjectVO) obj;
+		if (class_time == null) {
+			if (other.class_time != null)
+				return false;
+		} else if (!class_time.equals(other.class_time))
+			return false;
+		if (classroom == null) {
+			if (other.classroom != null)
+				return false;
+		} else if (!classroom.equals(other.classroom))
+			return false;
+		if (prof == null) {
+			if (other.prof != null)
+				return false;
+		} else if (!prof.equals(other.prof))
+			return false;
+		if (sub_name == null) {
+			if (other.sub_name != null)
+				return false;
+		} else if (!sub_name.equals(other.sub_name))
+			return false;
+		return true;
+	}
+	
+	
 
 	
 }

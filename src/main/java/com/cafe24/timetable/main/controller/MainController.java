@@ -41,8 +41,8 @@ public class MainController {
 		
 		mav.addObject("subjectList", subjectList);
 		
-		System.out.println("넘어온 과목 리스트 : " + subjectList.toString());
-		
+		System.out.println("넘어온 과목 리스트 ");
+	
 		return mav;
 		
 	}
@@ -67,10 +67,15 @@ public class MainController {
 			List<SubjectVO> subjectList = (List<SubjectVO>)mainService.selectSubjects(hm);
 			System.out.println("가져온 선택과목 리스트 : " + subjectList.toString());
 			
+			for(SubjectVO vo : subjectList) {
+				System.out.println(vo);
+			}
+			
+			
 //			------------------여기까지 되는 부분---------------------
 			
 			// 해쉬맵에 삽입
-			HashMap hm2 = new HashMap();
+			HashMap<String, List<SubjectVO>> hm2 = new HashMap<>();
 			hm2.put("subjectList", subjectList);
 			
 			// 가져온 과목 리스트 db에 저장하기 - TimeTableVO

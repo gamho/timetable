@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.cafe24.timetable.main.vo.SubjectVO;
-import com.cafe24.timetable.main.vo.TimeTableVO;
 
 
 @Repository
@@ -33,8 +32,15 @@ public class MainDAOImpl implements MainDAO {
 
 	@Override
 	public void insertSubjects(HashMap hm2) {
-		System.out.println("DAO에서 해쉬맵 값 : " + hm2.values());
-		sqlSession.selectList("insertSubjects", hm2);
+
+		List<SubjectVO> list = (List<SubjectVO>)hm2.get("subjectList");
+		System.out.println("삽입할 리스트 값들 : " + list.toString()); // 잘 넘어오는 것 확인됨.
+		/*for(SubjectVO vo : list) {
+		
+		}*/
+		
+		
+		sqlSession.insert("insertSubjects", list);
 	}
 	
 	
