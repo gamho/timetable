@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	alert('!!!');
 	// 화면 전환 이벤트
     $('.btn-light').click(function() {
         $('.searchList').css('display', 'none');
@@ -71,6 +70,8 @@ $(document).ready(function(){
 							schedule[week][hour01] = true;
 							schedule[week][hour02] = true;
 							console.log(schedule);
+							// 색깔 칠해주는 코드!
+						//	$('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red')
 						}
 					}
 				}

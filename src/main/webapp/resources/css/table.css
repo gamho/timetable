@@ -23,7 +23,13 @@ table th {
 	
 }
 
-table#list tr:nth-child(2n) {
+table#list  tr:nth-child(2n) {
+	
+	background-color: #F7F9FC;
+	
+}
+
+table#list2  tr:nth-child(2n) {
 	
 	background-color: #F7F9FC;
 	
@@ -48,4 +54,14 @@ td a:hover {
 
 .timeTable {
     display: none;
+}
+
+#list2 {
+	
+	border : 1px solid #D4E0EE;
+	border-collpase : collapse;
+	font-family : verdana, sans-serif;
+	color : #555;
+	background-color: #E6EDF5;
+	
 }
