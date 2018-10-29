@@ -9,8 +9,8 @@ $(document).ready(function(){
      $('.btn-dark').click(function() {
         $('.searchList').css('display', 'block');
         $('.timeTable').css('display', 'none');
-        $('.btn-dark').css('backgound-color', '#343a40');
-        $('.btn-light').css('backgound-color', 'grey');
+        $('.btn-dark').css('background-color', '#343a40');
+        $('.btn-light').css('background-color', 'grey');
     });
 
      
@@ -24,7 +24,8 @@ $(document).ready(function(){
 	}
 	console.log(schedule);
 	$('input[type=checkbox]').click( function(){
-		var credit = $(this).parent().siblings().eq(4).text();
+		var credit = $(this).parent().siblings().eq(4).text(); // 학점
+		var className = $(this).parent().siblings().eq(2).text(); // 과목명
 		credit = parseInt(credit);
 		if(this.checked) {
 			if((totalCredit + credit) > 21) {
@@ -92,6 +93,7 @@ function checkCredit() {
 		alert('최소 18학점 이상 선택하셔야 합니다.')
 		return false;
 	} else {
+		alert('시간표가 등록되었습니다. 최대 2개까지 조회 가능합니다.')
 		return true;
 	}
 	

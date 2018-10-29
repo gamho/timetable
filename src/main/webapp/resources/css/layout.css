@@ -24,3 +24,11 @@ footer {
 	padding : 20px;
 	
 }
+
+#creditCount {
+	position : fixed;
+	top : 500px;
+	left : 1200px;
+	background-color : yellow;
+	opacity: 0.7;
+}

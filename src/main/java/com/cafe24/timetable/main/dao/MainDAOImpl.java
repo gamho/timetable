@@ -19,8 +19,8 @@ public class MainDAOImpl implements MainDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<SubjectVO> selectAllSubjects() {
-		List<SubjectVO> subjectList = sqlSession.selectList("selectAllSubjects");
+	public List<SubjectVO> selectAllSubjects(SubjectVO department) {
+		List<SubjectVO> subjectList = sqlSession.selectList("selectAllSubjects", department);
 		return subjectList;
 	}
 

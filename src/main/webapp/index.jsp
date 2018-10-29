@@ -76,6 +76,9 @@
 		});
 		
 		$('#next').click(function() {
+			if(page >= 2) {
+				alert('만들 수 있는 최대 시간표는 2개입니다.');
+			} else {
 			page++;
 			alert(page);
 			returnTable();
@@ -124,13 +127,14 @@
 				}
 			</c:forEach>
 		</c:if>
+			}
 		});
 		
 	$('.btn-light').click(function() {	
 	        $('.searchList').css('display', 'none');
 	        $('.timeTable').css('display', 'block');
-	        $('.btn-light').css('backgound-color', '#343a40');
-	        $('.btn-dark').css('backgound-color', 'grey');
+	        $('.btn-light').css('background-color', '#343a40');
+	        $('.btn-dark').css('background-color', 'grey');
 	    
 	 
 		<c:if test="${ not empty list3 }"> 
@@ -198,7 +202,7 @@
 			<!-- 조회/시간표 구분 div -->
 			<div class="changeView" align="left">
 				<button type="button" class="btn btn-dark">과목 검색</button>
-				<button type="button" class="btn btn-light">시간표 확인</button>
+				<button type="button" class="btn btn-light" style="background-color:grey; color:#ffffff;">시간표 확인</button>
 			</div>
 			<!-- 조회/시간표 구분 div 끝 -->
 			<!-- 조회 div -->
@@ -209,15 +213,13 @@
 						<tr>
 							<td>
 							<form id="selection" action="selection.do" method="post" commandName="SubjectVO">
-							학과지정	<select id="department" style="width: 17%">
-									<option value="default">&nbsp;&nbsp;학 과</option>
-									<option value="socialWelfare">사회복지학과</option>
-									<option value="computerScience">컴퓨터공학과</option>
+							학과지정	<select name="department" id="department" style="width: 17%">
+									<option value="사회복지학과">사회복지학과</option>
+									<option value="컴퓨터공학과">컴퓨터공학과</option>
 								</select>&nbsp;&nbsp;|| 이수
-								<select id="option" style="width: 17%">
-									<option value="default">&nbsp;&nbsp;이 수 구 분</option>
-									<option value="optional">전선</option>
-									<option value="mandatory">전필</option>
+								<select name="option" id="option" style="width: 17%">
+									<option value="">&nbsp;&nbsp;이 수 구 분</option>
+									<option value="">전공(전선+전필)</option>
 								</select>&nbsp;&nbsp;|| 과목명&nbsp;
 								<input type="text" style="width: 100px">&nbsp;
 								<input type="submit" class="btn btn-info" value="조회">
@@ -231,7 +233,7 @@
 				<!-- 조회 시간표 출력 테이블 div -->
 				<div class="searchList">
 				<!-- form태그 들어가는 위치 -->
-				<div align="right">선택한 학점수 : <span id="credit">0</span></div>
+				<div id="creditCount" align="right">선택한 학점수 : <span id="credit">0</span></div>
 				<form method="post" action="createTable.do"  onsubmit="return checkCredit()">
 					<table border="1" style="width: 100%;" id="list">
 						<tr>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cafe24.timetable.main.service.MainService;
@@ -25,16 +26,13 @@ public class MainController {
 	
 	// POST 방식으로 호출되는 과목 리스트 - 추후에 조건 적용함에 따라 get으로 바뀔 수도 있으니, 참고할 것.
 	@RequestMapping(value="/selection.do", method=RequestMethod.POST)
-	public ModelAndView selection(HttpServletRequest request, HttpServletResponse response/*,
-			@RequestParam("department") String department, @RequestParam("option") String option*/) throws Exception {		
+	public ModelAndView selection(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam SubjectVO department) throws Exception {		
 		
-		System.out.println("selection.do 컨트롤러 시작");
-//		System.out.println("department : " + department);
-//		System.out.println("option : " + option);
 		
         // db에 있는 과목들 가져오기 - SubjectVO
 		
- 		List<SubjectVO> subjectList = mainService.selectAllSubjects();
+ 		List<SubjectVO> subjectList = mainService.selectAllSubjects(department);
 	
  		// 세션에 받아온 객체 추가 - redirect 대응
  		HttpSession session = request.getSession();

@@ -26,6 +26,9 @@ public class SubjectVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public SubjectVO(String department) {
+		this.department = department;
+	}
 	public SubjectVO(int no, String department, int sub_no, String sub_name, String kind, String stu_no, int stu_limit,
 			String class_time, String prof, String classroom, String remarks) {
 		super();

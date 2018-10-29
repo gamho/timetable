@@ -5,8 +5,9 @@
 <mapper namespace="com.cafe24.timetable.main.dao.MainDAO">
 
 	<!-- 과목 리스트 조회 -->
-	<select id="selectAllSubjects" resultType="SubjectVO">
+	<select id="selectAllSubjects" resultType="SubjectVO" parameterType="SubjectVO">
 		SELECT * FROM SUBJECT_T
+			WHERE DEPARTMENT = '${ department }'
 			ORDER BY NO
 	</select>
 	

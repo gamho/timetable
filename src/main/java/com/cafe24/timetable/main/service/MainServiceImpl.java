@@ -19,8 +19,8 @@ public class MainServiceImpl implements MainService{
 	private MainDAO mainDAO;
 
 	@Override
-	public List<SubjectVO> selectAllSubjects() {
-		List<SubjectVO> subjectList = mainDAO.selectAllSubjects();
+	public List<SubjectVO> selectAllSubjects(SubjectVO department) {
+		List<SubjectVO> subjectList = mainDAO.selectAllSubjects(department);
 		return subjectList;
 	}
 
