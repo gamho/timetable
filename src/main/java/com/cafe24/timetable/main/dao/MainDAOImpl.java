@@ -31,16 +31,26 @@ public class MainDAOImpl implements MainDAO {
 	}
 
 	@Override
-	public void insertSubjects(HashMap hm2) {
+	public List<SubjectVO> insertSubjects(HashMap hm2) {
 
 		List<SubjectVO> list = (List<SubjectVO>)hm2.get("subjectList");
 		System.out.println("삽입할 리스트 값들 : " + list.toString()); // 잘 넘어오는 것 확인됨.
-		/*for(SubjectVO vo : list) {
 		
-		}*/
+		int last_num = 1;
+		try {
+			last_num = sqlSession.selectOne("selectLastNo");
+			last_num = last_num + 1;
+		} catch(NullPointerException e) {
+			System.out.println("catch의 lastNo : " + last_num);
+		}
 		
+		SubjectVO.setLast_num(last_num);
+		System.out.println("라스트넘 : " + last_num);
 		
 		sqlSession.insert("insertSubjects", list);
+		List<SubjectVO> list3 = sqlSession.selectList("selectAllTimeTables");
+		System.out.println("list3 : " + list3);
+		return list3;
 	}
 	
 	

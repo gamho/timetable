@@ -20,7 +20,7 @@ public interface MainDAO {
 	public List<SubjectVO> selectSubjects(HashMap hm);
 
 	// 선택한 과목 리스트 삽입하기
-	public void insertSubjects(HashMap hm2);
+	public List<SubjectVO> insertSubjects(HashMap hm2);
 	
 	
 }

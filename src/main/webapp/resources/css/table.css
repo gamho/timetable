@@ -54,14 +54,13 @@ td a:hover {
 
 .timeTable {
     display: none;
-}
-
-#list2 {
-	
-	border : 1px solid #D4E0EE;
+    border : 1px solid #D4E0EE;
 	border-collpase : collapse;
 	font-family : verdana, sans-serif;
 	color : #555;
 	background-color: #E6EDF5;
-	
+}
+
+.red {
+	background-color: red;
 }

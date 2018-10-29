@@ -11,12 +11,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cafe24.timetable.main.service.MainService;
 import com.cafe24.timetable.main.vo.SubjectVO;
-import com.cafe24.timetable.main.vo.TimeTableVO;
 
 
 @Controller
@@ -81,10 +79,15 @@ public class MainController {
 			hm2.put("subjectList", subjectList);
 			
 			// 가져온 과목 리스트 db에 저장하기 - TimeTableVO
-			mainService.insertSubjects(hm2);
+			List<SubjectVO> list3 = mainService.insertSubjects(hm2);
 			System.out.println("db 저장 완료");
 			
+			HttpSession session = request.getSession();
+			session.setAttribute("list3", list3);
+			session.setAttribute("last_num", SubjectVO.getLast_num());
+			
 			ModelAndView mav = new ModelAndView("redirect:/index.jsp");
+						
 			return mav;
 		}
 	

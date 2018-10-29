@@ -2,6 +2,15 @@ package com.cafe24.timetable.main.vo;
 
 public class SubjectVO {
 	
+	private static int last_num;
+	
+	public static int getLast_num() {
+		return last_num;
+	}
+	public static void setLast_num(int last_num) {
+		SubjectVO.last_num = last_num;
+	}
+	
 	private int no;
 	private String department;
 	private int sub_no;

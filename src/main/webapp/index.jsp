@@ -16,6 +16,172 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 <script src="<c:url value="/resources/js/index.js" />"></script>
 </head>
+<script>
+	$(document).ready(function() {
+		var page = 1;
+		
+		$('#previous').click(function() {
+			if(page <= 1) {
+				alert('첫 시간표입니다.');
+			} else {
+			page--;
+			alert(page);
+			returnTable();
+			<c:if test="${ not empty list3 }"> 
+			<c:forEach var="var1" items="${ list3 }">
+				if(page == 1) {
+					<c:if test="${ var1.no == 1 }">
+						var data = "${ var1.class_time }";
+						for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+							var weekstr = "월화수목금";
+							var week = data.substr(3*i, 1);
+							week = weekstr.indexOf(week);
+							var hour01 = data.substr(1,1);
+							var hour02 = data.substr(2,1);
+							console.log(week, hour01, hour02);
+							week = parseInt(week);
+							hour01 = parseInt(hour01);
+							hour02 = parseInt(hour02);
+							/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+						}
+					</c:if>
+				} else if(page == 2) {
+					<c:if test="${ var1.no == 2 }">
+					var data = "${ var1.class_time }";
+					for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+						var weekstr = "월화수목금";
+						var week = data.substr(3*i, 1);
+						week = weekstr.indexOf(week);
+						var hour01 = data.substr(1,1);
+						var hour02 = data.substr(2,1);
+						console.log(week, hour01, hour02);
+						week = parseInt(week);
+						hour01 = parseInt(hour01);
+						hour02 = parseInt(hour02);
+						/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+					}
+				</c:if>
+				}
+			</c:forEach>
+		</c:if>
+			}
+		});
+		
+		$('#next').click(function() {
+			page++;
+			alert(page);
+			returnTable();
+			<c:if test="${ not empty list3 }"> 
+			<c:forEach var="var1" items="${ list3 }">
+				if(page == 1) {
+					<c:if test="${ var1.no == 1 }">
+						var data = "${ var1.class_time }";
+						for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+							var weekstr = "월화수목금";
+							var week = data.substr(3*i, 1);
+							week = weekstr.indexOf(week);
+							var hour01 = data.substr(1,1);
+							var hour02 = data.substr(2,1);
+							console.log(week, hour01, hour02);
+							week = parseInt(week);
+							hour01 = parseInt(hour01);
+							hour02 = parseInt(hour02);
+							/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+						}
+					</c:if>
+				} else if(page == 2) {
+					<c:if test="${ var1.no == 2 }">
+					var data = "${ var1.class_time }";
+					for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+						var weekstr = "월화수목금";
+						var week = data.substr(3*i, 1);
+						week = weekstr.indexOf(week);
+						var hour01 = data.substr(1,1);
+						var hour02 = data.substr(2,1);
+						console.log(week, hour01, hour02);
+						week = parseInt(week);
+						hour01 = parseInt(hour01);
+						hour02 = parseInt(hour02);
+						/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+					}
+				</c:if>
+				}
+			</c:forEach>
+		</c:if>
+		});
+		
+	$('.btn-light').click(function() {	
+	        $('.searchList').css('display', 'none');
+	        $('.timeTable').css('display', 'block');
+	        $('.btn-light').css('backgound-color', '#343a40');
+	        $('.btn-dark').css('backgound-color', 'grey');
+	    
+	 
+		<c:if test="${ not empty list3 }"> 
+			<c:forEach var="var1" items="${ list3 }">
+				if(page == 1) {
+					<c:if test="${ var1.no == 1 }">
+						var data = "${ var1.class_time }";
+						for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+							var weekstr = "월화수목금";
+							var week = data.substr(3*i, 1);
+							week = weekstr.indexOf(week);
+							var hour01 = data.substr(1,1);
+							var hour02 = data.substr(2,1);
+							console.log(week, hour01, hour02);
+							week = parseInt(week);
+							hour01 = parseInt(hour01);
+							hour02 = parseInt(hour02);
+							/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+							$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+							$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+						}
+					</c:if>
+				} else if(page == 2) {
+					<c:if test="${ var1.no == 2 }">
+					var data = "${ var1.class_time }";
+					for(var i = 0;  i < Math.trunc(data.length/3, 0); i++) {
+						var weekstr = "월화수목금";
+						var week = data.substr(3*i, 1);
+						week = weekstr.indexOf(week);
+						var hour01 = data.substr(1,1);
+						var hour02 = data.substr(2,1);
+						console.log(week, hour01, hour02);
+						week = parseInt(week);
+						hour01 = parseInt(hour01);
+						hour02 = parseInt(hour02);
+						/* $('#list2').find('tr').eq(week+1).children().eq(hour01+1).css('background-color', 'red'); */
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).addClass('red');
+						$('#list2').find('tr').eq(hour01).children().eq(week+1).text('${var1.sub_name}');
+						$('#list2').find('tr').eq(hour02).children().eq(week+1).text('${var1.classroom}');
+					}
+				</c:if>
+				}
+			</c:forEach>
+		</c:if>
+	  
+		});
+	});
+</script>
 <body>
 	<!-- 전체 div -->
 	<div class="mainWrapper">
@@ -66,8 +232,8 @@
 				<div class="searchList">
 				<!-- form태그 들어가는 위치 -->
 				<div align="right">선택한 학점수 : <span id="credit">0</span></div>
-				<form method="post" action="createTable.do" commandName="SubjectVO">
-					<table border="1" style="width: 100%; align-content: center;" id="list">
+				<form method="post" action="createTable.do"  onsubmit="return checkCredit()">
+					<table border="1" style="width: 100%;" id="list">
 						<tr>
 							<th width="3%"></th>
 							<th width="5%">번호</th>
@@ -99,7 +265,7 @@
 						</c:forEach>
 					</table>
 					<br> <br>
-					<button type="submit" class="btn btn-info">시간표 제작</button>
+					<button type="submit" class="btn btn-info" id="createBtn">시간표 제작</button>
 				</form>
 				</div>
 				<!-- 조회 시간표 출력 테이블 div 끝 -->
@@ -108,7 +274,7 @@
 			<!-- 시간표 출력 div -->
 			<div class="timeTable">
 				<div id="result" align="center">
-					<table border="1" style="width: 100%; align-content: center;" id="list2">
+					<table border="1" style="width: 100%;" id="list2">
 						<tr>
 							<th width="10%">구분</th>
 							<th width="18%">월</th>
@@ -130,11 +296,9 @@
 					</table>
 				</div>
 				<!-- 시간표 출력 div 끝 -->
-				<br> <br>
-				<button type="button" class="btn btn-info"
-					onclick="goToPreviousTimeTable()">이전 시간표</button>
-				<button type="button" class="btn btn-info"
-					onclick="goToPreviousTimeTable()">다음 시간표</button>
+				<br><br>
+				<button type="button" class="btn btn-info" id="previous">이전 시간표</button>
+				<button type="button" class="btn btn-info" id="next">다음 시간표</button>
 			</div>
 			<br> <br>
 			<footer>

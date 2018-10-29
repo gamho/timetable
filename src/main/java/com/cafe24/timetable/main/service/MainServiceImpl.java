@@ -31,8 +31,9 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public void insertSubjects(HashMap hm2) {
-		mainDAO.insertSubjects(hm2);
+	public List<SubjectVO> insertSubjects(HashMap hm2) {
+		List<SubjectVO> list3 = mainDAO.insertSubjects(hm2);
+		return list3;
 		
 	}
 

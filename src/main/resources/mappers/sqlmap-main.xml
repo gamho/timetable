@@ -19,16 +19,28 @@
 		    </foreach>
 			ORDER BY NO
 	</select>
+	
+	<!-- 등록된 마지막 숫자 조회 -->
+	<select id="selectLastNo" resultType="int">
+		select no 
+		from (select * from timetable_t order by no desc)
+        where rownum = 1
+	</select>
+
 
 	<!-- 선택한 과목 리스트 삽입 -->
 	<insert id="insertSubjects" parameterType="java.util.List">
 		<foreach collection="list" item="item" open="INSERT ALL" separator=" " close = "select * from dual">
 			INTO TIMETABLE_T(NO, SUB_NAME, CLASS_TIME, PROF, CLASSROOM)
-				VALUES(1, #{item.sub_name, jdbcType=VARCHAR}, #{item.class_time, jdbcType=VARCHAR}, #{item.prof, jdbcType=VARCHAR}, #{item.classroom, jdbcType=VARCHAR})
-		</foreach> 
-		
-		
+				VALUES(#{item.last_num}, #{item.sub_name, jdbcType=VARCHAR}, #{item.class_time, jdbcType=VARCHAR}, #{item.prof, jdbcType=VARCHAR}, #{item.classroom, jdbcType=VARCHAR})
+		</foreach> 	
 	</insert>
+
+	<!-- 전체 타임테이블 조회 -->
+	<select id="selectAllTimeTables" resultType="SubjectVO">
+		SELECT * FROM TIMETABLE_T ORDER BY NO
+	</select>
+
 
 
 </mapper>
